@@ -1,0 +1,58 @@
+plugins {
+    id 'idea'
+    id 'maven-publish'
+}
+
+repositories {
+    maven { url "http://localhost:8020/repository/maven-public/" }
+    maven { url "https://jitpack.io" }
+    mavenCentral()
+}
+
+group 'com.github.peacetrue'
+version '1.0'
+description '从spring-data-commons中提取page相关的接口类，用于在接口项目中做分页引用，对应spring-framework 4.x、spring-data-commons 1.x'
+sourceCompatibility = 1.8
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+task sourcesJar(type: Jar) {
+    classifier = "sources"
+    from sourceSets.main.allJava
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://nexus.au32.cn/repository/maven-releases"
+            def snapshotsRepoUrl = "https://nexus.au32.cn/repository/maven-snapshots"
+            url version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username = 'admin'
+                password = 'gold2018'
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
