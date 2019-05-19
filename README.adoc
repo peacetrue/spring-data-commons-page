@@ -1,0 +1,15 @@
+= spring-data-commons-page
+xiayx <xiayouxue@hotmail.com>
+v1.0, 2019-05-19: First incarnation
+:doctype: docbook
+:toc: left
+:numbered:
+:imagesdir: assets/images
+:sourcedir: src/main/java
+:resourcesdir: src/main/resources
+:testsourcedir: src/test/java
+:source-highlighter: coderay
+:coderay-linenums-mode: inline
+
+从spring-data-commons中提取page相关的接口类，用于在接口项目中做分页引用，对应spring-framework 4.x、spring-data-commons 1.x。
+
