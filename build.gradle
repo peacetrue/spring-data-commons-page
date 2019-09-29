@@ -6,9 +6,9 @@ plugins {
 }
 
 group 'com.github.peacetrue'
-version '1.0-RELEASE'
-//version '1.0-SNAPSHOT'
-description '从spring-data-commons中提取page相关的接口类，用于在接口项目中做分页引用，对应spring-framework 4.x、spring-data-commons 1.x'
+//version '1.0-RELEASE'
+version '2.0.0-SNAPSHOT'
+description '从spring-data-commons中提取page相关的接口类，用于在接口项目中做分页引用，对应spring-data-commons 2.x'
 
 apply plugin: 'java'
 sourceCompatibility = 1.8
@@ -16,6 +16,10 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
+
+//dependencies{
+//    implementation "org.springframework.data:spring-data-commons:2.1.10.RELEASE"
+//}
 
 task sourcesJar(type: Jar) {
     archiveClassifier = 'sources'
@@ -31,6 +35,7 @@ def repository_snapshots = "https://oss.sonatype.org/content/repositories/snapsh
 def repository_releases = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
 
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -52,9 +57,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = 'https://github.com/peacetrue/peacetrue.git'
+                    connection = 'https://github.com/peacetrue/spring-data-commons-page.git'
                     developerConnection = 'https://github.com/peacetrue/spring-data-commons-page.git'
-                    url = 'https://github.com/peacetrue/peacetrue'
+                    url = 'https://github.com/peacetrue/spring-data-commons-page'
                 }
             }
 

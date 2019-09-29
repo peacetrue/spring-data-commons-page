@@ -11,5 +11,9 @@ v1.0, 2019-05-19: First incarnation
 :source-highlighter: coderay
 :coderay-linenums-mode: inline
 
-从spring-data-commons中提取page相关的接口类，用于在接口项目中做分页引用，对应spring-framework 4.x、spring-data-commons 1.x。
+spring-data-commons类库过大，
+从spring-data-commons中提取page相关的接口类，
+用于在接口项目中做分页引用，
+对应spring-framework 4.x、spring-data-commons 2.x。
+
 
